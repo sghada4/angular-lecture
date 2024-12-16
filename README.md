@@ -15,9 +15,8 @@ TypeScript offers static typing, which helps catch errors during development. Co
   let c: Color = Color.Green;
   ```
 - **Union Types**: A variable can hold multiple types, e.g., `string | number`.
-- **Type Aliases**: Define custom types, e.g.,
   ```typescript
-  type ID = string | number;
+  id = string | number;
   ```
 
 ### 2. **Interfaces**
