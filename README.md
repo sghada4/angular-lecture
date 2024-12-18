@@ -15,9 +15,8 @@ TypeScript offers static typing, which helps catch errors during development. Co
   let c: Color = Color.Green;
   ```
 - **Union Types**: A variable can hold multiple types, e.g., `string | number`.
-- **Type Aliases**: Define custom types, e.g.,
   ```typescript
-  type ID = string | number;
+  id = string | number;
   ```
 
 ### 2. **Interfaces**
@@ -263,3 +262,88 @@ console.log(person.greet());
      this.allBooks= books
    }
    ```
+Here are detailed assignments based on the provided lecture document:
+
+---
+
+### **Assignment 1: Building Your First Angular Component**
+#### Objective:
+Understand how to create and use components in Angular.
+
+#### Tasks:
+1. **Setup**:
+   - Create a new Angular project named `student-app`.
+
+2. **App Component**:
+   - Modify the `title` property in `app.component.ts` to `Welcome to Student App!`
+   - Display the title in `app.component.html`.
+
+3. **Custom Component**:
+   - Generate a new component named `student-list`.
+   - In `student-list.component.ts`, add an array of students with the following structure:
+     ```typescript
+     students = [
+       { id: 1, name: 'Alice', age: 22 },
+       { id: 2, name: 'Bob', age: 24 },
+       { id: 3, name: 'Charlie', age: 23 }
+     ];
+     ```
+   - In `student-list.component.html`, display the list of students using an `*ngFor` directive.
+
+4. **Integrate Component**:
+   - Add the `<app-student-list>` selector to `app.component.html` to display the new component.
+
+#### Submission:
+Provide a link to the GitHub repository with the Angular project files.
+
+---
+
+### **Assignment 2: Parent-Child Component Communication**
+#### Objective:
+Learn how to pass data between parent and child components.
+
+#### Tasks:
+1. **Parent to Child**:
+   - In the `student-list` component, add an `@Input` property named `course`.
+   - Modify `student-list.component.html` to display the course name at the top.
+   - Pass the course name (`"Full-Stack Development"`) from the parent `app.component.html`.
+
+2. **Child to Parent**:
+   - Add a button in `student-list.component.html` labeled `Notify Parent`.
+   - Emit an event from `student-list` to `app.component` with the message: `"Student list has been updated!"`.
+   - Handle the event in `app.component.ts` and log the message in the console.
+
+#### Submission:
+Submit the updated Angular project with the `student-list` component demonstrating both types of communication.
+
+---
+
+### **Assignment 3: Create a Product Dashboard**
+#### Objective:
+Build a simple product dashboard with multiple components.
+
+#### Tasks:
+1. **Setup**:
+   - Create a new Angular project named `product-dashboard`.
+
+2. **Components**:
+   - Generate components for `product-list`, `product-details`, and `product-summary`.
+
+3. **Product List**:
+   - In `product-list.component.ts`, add a list of products with the following properties:
+     - `id`, `name`, `price`, `description`
+   - Use `*ngFor` to display the products in `product-list.component.html`.
+
+4. **Product Details**:
+   - Use `@Input` to pass a product from `product-list` to `product-details`.
+   - Display detailed information about the selected product in `product-details.component.html`.
+
+5. **Product Summary**:
+   - Calculate the total number of products and their average price in `product-summary.component.ts`.
+   - Display these statistics in `product-summary.component.html`.
+
+6. **Integration**:
+   - Include all three components in `app.component.html` and ensure they work together seamlessly.
+
+#### Submission:
+Provide a link to the GitHub repository containing the complete `product-dashboard` project.
