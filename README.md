@@ -487,3 +487,65 @@ Render the submitted data.
 <p><strong>Name:</strong> {{ formData.name }}</p>
 <p><strong>Email:</strong> {{ formData.email }}</p>
 ```
+
+---
+
+### **Assignment 1: User Profile Submission App**
+
+**Objective**:  
+Build an Angular application with a form to collect user profile data and a display component to show the submitted information. This assignment will help you practice working with Angular components, routing, forms, and data passing between components.
+
+---
+
+**Description**:  
+You are tasked with creating a simple user profile submission app that includes the following features:  
+
+1. **FormComponent**:  
+   - Create a form to collect user profile data with the following fields:  
+     - Full Name (text input).  
+     - Age (number input).  
+     - Gender (dropdown selection with options: Male, Female, Other).  
+     - Email Address (email input).  
+     - Is Subscribed (checkbox to indicate subscription preference).  
+   - Upon submission, navigate to the display page and pass the collected data.  
+
+2. **DisplayComponent**:  
+   - Retrieve the submitted data passed from the form.  
+   - Display the data in a user-friendly format, clearly showing each field and its value.  
+
+3. **Routing**:  
+   - Configure routing so that:  
+     - `/form` displays the form page (default route).  
+     - `/display` displays the submitted profile information.  
+   - Add a navigation bar for easy switching between routes.
+
+---
+
+### **Assignment 2: Product Feedback Submission App**
+
+**Objective**:  
+Develop an Angular application that allows users to submit product feedback and displays the submitted information on a separate page. This assignment will help you solidify your understanding of Angular components, forms, routing, and data sharing.
+
+---
+
+**Description**:  
+Create an app with the following functionality:
+
+1. **FormComponent**:  
+   - Create a form to collect product feedback with the following fields:  
+     - Product Name (text input).  
+     - Rating (number input).  
+     - Feedback (textarea).  
+     - Email (email input).  
+     - Would Recommend (radio buttons with options: Yes, No).  
+   - Upon submission, navigate to the display page and pass the feedback data.
+
+2. **DisplayComponent**:  
+   - Retrieve and display the submitted feedback data, clearly showing each field and its value.  
+   - Format the information in a visually structured way, e.g., using headings and bullet points.
+
+3. **Routing**:  
+   - Configure routing so that:  
+     - `/form` is the default route and shows the feedback form.  
+     - `/display` shows the feedback details page.  
+   - Include a navigation bar for easy switching between routes.
