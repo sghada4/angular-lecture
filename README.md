@@ -347,3 +347,143 @@ Build a simple product dashboard with multiple components.
 
 #### Submission:
 Provide a link to the GitHub repository containing the complete `product-dashboard` project.
+
+---
+
+# Angular Lecture: Routing and Handling Forms
+
+---
+
+### 1. Create Components
+#### Command to Generate Components:
+```bash
+ng generate component home
+ng generate component about
+ng generate component contact
+ng generate component form
+ng generate component display
+```
+
+---
+
+### 2. Configure Routing
+#### Add Routing Module:
+- Open the `app-routes.ts` file.
+- Define routes for the components:
+
+```typescript
+import { Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { FormComponent } from './form/form.component';
+import { DisplayComponent } from './display/display.component';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent }, // Default route
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'form', component: FormComponent },
+  { path: 'display', component: DisplayComponent },
+];
+
+```
+
+#### Update `app.component.html`:
+Add a navigation bar and `<router-outlet>` for routing.
+
+```html
+<nav>
+  <a routerLink="/">Home</a> |
+  <a routerLink="/about">About</a> |
+  <a routerLink="/contact">Contact</a> |
+  <a routerLink="/form">Form</a>
+</nav>
+
+<router-outlet></router-outlet>
+```
+
+Import `RouterOutlet` and `RouterModule` in `app.component.ts`
+
+```typescript
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, RouterModule],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+
+```
+
+---
+
+### 3. Create a Form Component
+#### Add Form Controls:
+- Open `form.component.html` and add a form:
+
+```html
+<form #dataForm="ngForm" (ngSubmit)="onSubmit(dataForm.value)">
+  <label for="name">Name:</label>
+  <input id="name" name="name" ngModel required>
+
+  <label for="email">Email:</label>
+  <input id="email" name="email" type="email" ngModel required>
+
+  <button type="submit" [disabled]="dataForm.invalid">Submit</button>
+</form>
+```
+
+#### Handle Form Data in `form.component.ts`:
+Add a method to send form data to another component.
+
+```typescript
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-form',
+  templateUrl: './form.component.html',
+  styleUrls: ['./form.component.css']
+})
+export class FormComponent {
+  constructor(private router: Router) {}
+
+  onSubmit(formData: any) {
+    this.router.navigate(['/display'], { state: { data: formData } });
+  }
+}
+```
+
+---
+
+### 4. Display Submitted Data
+#### Access Data in `display.component.ts`:
+Retrieve and display the form data passed via the router's state.
+
+```typescript
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-display',
+  templateUrl: './display.component.html',
+  styleUrls: ['./display.component.css']
+})
+export class DisplayComponent {
+  formData: any;
+
+  constructor(private router: Router) {
+    const navigation = this.router.getCurrentNavigation();
+    this.formData = navigation?.extras?.state?.['data'] || {};
+  }
+}
+```
+
+#### Display Data in `display.component.html`:
+Render the submitted data.
+
+```html
+<h2>Submitted Data:</h2>
+<p><strong>Name:</strong> {{ formData.name }}</p>
+<p><strong>Email:</strong> {{ formData.email }}</p>
+```
