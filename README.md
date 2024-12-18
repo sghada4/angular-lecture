@@ -312,7 +312,6 @@ Then, in `angular.json`, add the Bootstrap JavaScript file to the `scripts` arra
      this.allBooks= books
    }
    ```
-Here are detailed assignments based on the provided lecture document:
 
 ---
 
@@ -400,7 +399,7 @@ Provide a link to the GitHub repository containing the complete `product-dashboa
 
 ---
 
-# Angular Lecture: Routing and Handling Forms
+# Routing and Handling Forms
 
 ---
 
@@ -489,9 +488,12 @@ Add a method to send form data to another component.
 ```typescript
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
+  imports: [CommonModule, FormsModule],
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
