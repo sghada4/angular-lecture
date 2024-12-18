@@ -222,7 +222,7 @@ console.log(person.greet());
 #### Child to Parent
 1. Create interface for `Book`
    ```bash
-    ng generate interface user
+    ng generate interface book
    ```
 
 2. Add an `@Output` property in `my-component.component.ts`:
