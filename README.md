@@ -192,6 +192,56 @@ console.log(person.greet());
      </tbody>
    </table>
    ```
+---
+
+To use **Bootstrap** in an Angular project, follow these steps:
+
+---
+
+### Step 1: **Install Bootstrap**
+You can add Bootstrap to your Angular project using **npm**. Open your terminal and run:
+
+```bash
+npm install bootstrap
+```
+
+This will add Bootstrap to your project's `node_modules`.
+
+---
+
+### Step 2: **Add Bootstrap CSS**
+In your Angular project, open the `angular.json` file and add the Bootstrap CSS file path to the `styles` array.
+
+```json
+"styles": [
+  "src/styles.css",
+  "node_modules/bootstrap/dist/css/bootstrap.min.css"
+]
+```
+
+If you're using SCSS, replace `styles.css` with `styles.scss`.
+
+---
+
+### Step 3: (Optional) **Add Bootstrap JavaScript**
+If you need Bootstrap's JavaScript functionalities (e.g., modals, tooltips, dropdowns), you also need to include its JavaScript dependencies: **Popper.js** and **Bootstrap's JS**.
+
+Install them via npm:
+
+```bash
+npm install @popperjs/core
+```
+
+Then, in `angular.json`, add the Bootstrap JavaScript file to the `scripts` array:
+
+```json
+"scripts": [
+  "node_modules/@popperjs/core/dist/umd/popper.min.js",
+  "node_modules/bootstrap/dist/js/bootstrap.min.js"
+]
+```
+
+---
 
 ### 6. **Communicate Data Between Components**
 #### Parent to Child
