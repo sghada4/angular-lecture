@@ -1,0 +1,7 @@
+<form #dataForm="ngForm" (ngSubmit)="onSubmit(dataForm.value)">
+    <label >Name</label>
+    <input name="name" ngModel type="text">
+    <label >Email</label>
+    <input name="email" ngModel type="email">
+    <button type="submit" [disabled]="dataForm.invalid">Create</button>
+</form>
