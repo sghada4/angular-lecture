@@ -601,3 +601,33 @@ Create an app with the following functionality:
      - `/form` is the default route and shows the feedback form.  
      - `/display` shows the feedback details page.  
    - Include a navigation bar for easy switching between routes.
+
+---
+
+# **Use JavaScript Files in angular**
+If you have a custom JavaScript file, you can include it in the `angular.json` file.
+
+## Steps:
+### 1. Create your JavaScript `custom-script.js` file in `src/assets/js`
+### 2. Add the path to the JavaScript file under the `scripts` array:
+```json
+"scripts": [
+  "src/assets/js/custom-script.js"
+]
+```
+
+### 3. Use the functions defined in the file within your component:
+```typescript
+declare var customFunction: any;
+
+@Component({
+  selector: 'app-my-component',
+  templateUrl: './my-component.component.html',
+  styleUrls: ['./my-component.component.css']
+})
+export class MyComponent {
+  executeExternalScript(): void {
+    customFunction();
+  }
+}
+```
